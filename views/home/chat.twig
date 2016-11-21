@@ -1,0 +1,40 @@
+{##
+ # /views/home/index.twig
+ #}
+
+{% extends 'layout.twig' %}
+
+{% block title %}Home - {{parent()}}{% endblock title %}
+
+{% block body %}
+
+    <div class="container-fluid">
+        <div class="row">
+            <form class="form-inline" action="/" method="post" id="formulaire_chat">
+                <div class="form-group">
+                    <input class="form-control" 
+                           type="text" 
+                           name="message" 
+                           id="message" 
+                           placeholder="Votre message..." 
+                           size="50" required autofocus />
+                </div>
+                <button class="btn btn-primary" 
+                        type="submit" 
+                        id="envoi_message">Envoyer</button>
+            </form>
+        </div>
+    </div>
+
+    <section id="zone_chat">
+
+    </section>
+
+    <footer>
+        <p>Number of visits : {{ visits }}</p>
+    </footer>
+
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/javascripts/script.js"></script>
+{% endblock %}

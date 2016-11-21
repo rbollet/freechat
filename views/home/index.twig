@@ -1,0 +1,54 @@
+{##
+ # /views/home/index.twig
+ #}
+
+{% extends 'layout.twig' %}
+
+{% block title %}Home - {{parent()}}{% endblock title %}
+
+{% block body %}
+
+    <!--<div class="container-fluid">
+        <div class="row">
+            <form class="form-inline" action="/" method="post" id="formulaire_connexion">
+                <div class="form-group">
+                    <input class="form-control" type="text" name="message" id="message" placeholder="Votre Pseudo" size="20" required autofocus />
+                </div>
+                <button class="btn btn-primary" type="submit" id="envoi_message">Valider</button>
+            </form>
+        </div>
+    </div>-->
+
+    <div class="container">
+        <form class="form-signin" action="/connexion" method="post" autocomplete="off">
+            <h2 class="form-signin-heading">Choose a pseudo</h2>
+            <label for="inputPseudo" class="sr-only">Choose a pseudo</label>
+            <input id="inputPseudo" 
+                   name="inputPseudo" 
+                   class="form-control" 
+                   placeholder="Pseudo (required, at least 2 characters)" 
+                   required 
+                   minLength="6"
+                   autofocus 
+                   type="text">
+            
+            <button class="btn btn-primary btn-block"
+                    type="submit">Valider</button>
+           
+        </form>
+        
+    </div>
+
+    <div class="container">
+        <p><input type="button" value="Embêter le serveur" id="poke" /></p>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>Number of person : {{ visits }}</p>
+        </div>
+    </footer>
+
+    <script src="/javascripts/socket.io.js"></script>
+    <script src="/javascripts/index.js"></script>
+{% endblock %}
