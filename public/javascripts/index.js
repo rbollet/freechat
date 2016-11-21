@@ -1,5 +1,6 @@
 // Connexion à socket.io
 var socket = io.connect('http://localhost:3000');
+var user = false;
 
 //Quand on reçoit un message, on l'insère dans la page
 socket.on('message', function (data) {
@@ -53,6 +54,8 @@ socket.on('logged', function(data) {
     console.log(data);
     if(data.logged === true){
         console.log('logged');
+        user = data;
+        window.location = data.path;
     }else{
         console.log('not logged');
     }

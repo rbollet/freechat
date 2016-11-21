@@ -15,9 +15,12 @@ router.get('/', function(req, res){
 })
         
 .get('/chat', function(req, res){
-    //console.log(req.body)
-    console.log('ok chat !')
-    res.end()
+    res.setHeader('Content-Type', 'text/html')
+    res.render('./home/chat', {
+        title:'Chat',
+        message:'Chat',
+        visits: nbVisits
+    })
     
 })
 
